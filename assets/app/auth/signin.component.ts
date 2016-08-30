@@ -1,25 +1,46 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from './auth.service';
+import { FormBuilder, FormGroup, Validators, FormControl } from
+"@angular/forms";
 import {User} from './user';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'sign-in',
   template: `
-    <div>
-      <h3>Sign In</h3>
-      <input name="email" placeholder="email" #email>
-      <input name="password" placeholder="password" #password>
-      <button (click)="ngSubmit(email, password)">Sign in</button>
-    </div>
+    <section>
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="email">Email</label>
+          <input formControlName="email" type="text" id="email">
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input formControlName="password" type="password" id="password">
+        </div>
+      <button type="submit" [disabled]="!myForm.valid">Sign In</button>
+    </form>
+  </section>
   `
 })
-export class SigninComponent {
-  constructor(private authService: AuthService) {}
+export class SigninComponent implements OnInit {
+  myForm: FormGroup;
 
-  ngSubmit(email, password) {
-    const user = new User(email.value, password.value);
-    console.log(email.value);
-    console.log(password.value);
+  constructor(private _fb:FormBuilder, private authService: AuthService, private router: Router) {}
+
+  ngOnInit() {
+    this.myForm = this._fb.group({
+      password: ['', Validators.required],
+      email: ['', Validators.compose([
+        Validators.required,
+        this.isEmail
+      ])],
+    });
+  }
+
+  onSubmit() {
+    const user = new User(this.myForm.value.email, this.myForm.value.password);
     this.authService.signin(user)
       .subscribe(
         data => {
@@ -30,5 +51,11 @@ export class SigninComponent {
         },
         error => console.log(error)
       );
+  }
+
+  private isEmail(control: FormControl): {[s: string]: boolean} {
+    if (!control.value.match("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")) {
+      return {invalidMail: true};
+    }
   }
 }
