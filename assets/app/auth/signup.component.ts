@@ -1,3 +1,4 @@
+import { Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { AuthService } from "./auth.service";
@@ -28,20 +29,21 @@ import { User } from "./user";
 export class SignupComponent implements OnInit {
   myForm: FormGroup;
 
-  constructor(private fb:FormBuilder, private authService: AuthService) {}
+  constructor(private fb:FormBuilder, private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     const user = new User(this.myForm.value.email, this.myForm.value.password, this.myForm.value.name);
     this.authService.signup(user)
       .subscribe(
         data => console.log(data),
-        error => console.log("ADD ERROR SERVICE!")
-      )
+        error => console.log(error)
+      );
+    this.router.navigate(['/auth/signin'])
   }
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      firstName: ['', Validators.required],
+      name: ['', Validators.required],
       email: ['', Validators.compose([
         Validators.required,
         this.isEmail
