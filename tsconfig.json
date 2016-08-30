@@ -11,8 +11,7 @@
     "outDir": "../public/js/app"
   },
   "files": [
-    "./assets/app/boot.ts",
-    "./assets/app/auth/auth.service.ts"
+    "./assets/app/boot.ts"
   ],
   "exclude": [
     "node_modules"
