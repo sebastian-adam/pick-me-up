@@ -1,12 +1,12 @@
 import { RouterConfig } from "@angular/router";
 
-// import { SignupComponent } from "./signup.component";
+import { SignupComponent } from "./signup.component";
 import { SigninComponent } from "./signin.component";
-// import { LogoutComponent } from "./logout.component";
+import { LogoutComponent } from "./logout.component";
 
 export const AUTHENTICATION_ROUTES: RouterConfig = [
-  { path: '', pathMatch: 'full', redirectTo: 'signin' },
-  // { path: 'signup', component: SignupComponent },
-  { path: 'signin', component: SigninComponent }
-  // { path: 'logout', component: LogoutComponent }
+  { path: '', component: SigninComponent },
+  { path: 'signin', component: SigninComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'logout', component: LogoutComponent }
 ];
