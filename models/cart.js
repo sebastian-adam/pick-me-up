@@ -6,8 +6,7 @@ var schema = new Schema({
   name: { type: String, required: true },
   phone: { type: String, required: true },
   location: { type: String, required: true },
-  votes: { type: Number },
-  items: [{ type: Schema.types.ObjectId, ref: 'Item' }]
+  votes: { type: Number }
 });
 
 schema.plugin(mongooseUniqueValidator);

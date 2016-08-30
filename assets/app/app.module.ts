@@ -10,6 +10,7 @@ import { CartDetailComponent } from "./carts/cart-detail.component";
 import { CartListComponent } from "./carts/cart-list.component";
 import { CartsComponent } from "./carts/carts.component";
 import { AuthService } from './auth/auth.service';
+import { CartService } from './carts/cart.service';
 import { HttpModule } from '@angular/http';
 import { ROUTING } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     declarations: [AppComponent, SigninComponent, SignupComponent, LogoutComponent, AuthenticationComponent, CartDetailComponent, CartListComponent, CartsComponent],
     imports: [BrowserModule, HttpModule, ROUTING, FormsModule, ReactiveFormsModule],
     bootstrap: [AppComponent],
-    providers: [AuthService]
+    providers: [AuthService, CartService]
 })
 export class AppModule {
 

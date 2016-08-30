@@ -1,5 +1,4 @@
 import { RouterConfig } from "@angular/router";
-
 import { SignupComponent } from "./signup.component";
 import { SigninComponent } from "./signin.component";
 import { LogoutComponent } from "./logout.component";
