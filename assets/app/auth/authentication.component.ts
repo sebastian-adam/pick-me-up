@@ -9,8 +9,10 @@ import { AuthService } from './auth.service';
       <nav>
         <ul>
           <li routerLinkActive="active"><a [routerLink]="['/auth/signup']">Signup</a></li>
-          <li routerLinkActive="active"><a [routerLink]="['/auth/signin']" *ngIf="!isLoggedIn()">Signin</a></li>
-          <li routerLinkActive="active"><a [routerLink]="['/auth/logout']" *ngIf="isLoggedIn()">Logout</a></li>
+
+          <li *ngIf="!isLoggedIn()" routerLinkActive="active"><a [routerLink]="['/auth/signin']">Signin</a></li>
+          <li *ngIf="isLoggedIn()" routerLinkActive="active"><a [routerLink]="['/auth/logout']">Logout</a></li>
+
         </ul>
       </nav>
     </header>
