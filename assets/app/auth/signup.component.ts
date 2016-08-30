@@ -10,7 +10,7 @@ import { User } from "./user";
       <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <div>
           <label for="name">Name</label>
-          <input formControlName="name" type="text" id="name">
+          <input formControlName="name" id="name">
         </div>
         <div>
           <label for="email">Email</label>
@@ -41,7 +41,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      firstName: ['', Validators.required],
+      name: ['', Validators.required],
       email: ['', Validators.compose([
         Validators.required,
         this.isEmail
