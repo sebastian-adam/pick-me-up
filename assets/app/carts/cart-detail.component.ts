@@ -10,10 +10,14 @@ import { CartService } from "./cart.service";
     <article>
       <div>
         {{ cart.name }}
-        <button (ngClick)="showItems(cart)">Show More</button>
+        <button (click)="showItems(cart)">Show More</button>
         <form (ngSubmit)="onSubmit()">
           <button type="submit">VOTE</button>
         </form>
+        <div *ngIf="this.expanded">
+          <menu-item *ngFor="let item of items" [item]="item"></menu-item>
+        </div>
+
       </div>
     </article>
   `
@@ -24,16 +28,20 @@ export class CartDetailComponent {
   constructor(private cartService: CartService, private router: Router) {}
 
   items: Item[] = [];
+  expanded: Boolean = false;
 
   showItems(cart) {
+    console.log(cart);
     this.cartService.getItems(cart)
       .subscribe(
         items => {
           this.items = items;
           this.cartService.items = items;
+          console.log(this.items);
         },
         error => console.log('im an error')
       );
+    this.expanded = true;
   }
 
   onSubmit() {
