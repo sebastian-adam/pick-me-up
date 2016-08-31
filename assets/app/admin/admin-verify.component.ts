@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 
 @Component({
-  selector: 'admin',
+  selector: 'admin-verify',
   template: `
     <section>
       <form [formGroup]="myForm" (ngSubmit)="onSubmit()">

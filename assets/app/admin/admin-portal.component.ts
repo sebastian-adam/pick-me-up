@@ -1,11 +1,10 @@
 import { Component } from "@angular/core";
 
 @Component({
-  selector: 'admin',
+  selector: 'admin-portal',
   template: `
     <div>
-      <h3>Votes Recieved: ???</h3>
-      <button>Close Voting</button>
+      <cart-votes-list></cart-votes-list>
     </div>
     <div>
       <h3>Orders Recieved: ???</h3>

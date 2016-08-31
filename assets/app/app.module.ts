@@ -26,7 +26,7 @@ import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 
 
 @NgModule({
-    declarations: [AppComponent, NavbarComponent, SigninComponent, SignupComponent, LogoutComponent, AuthenticationComponent, CartDetailComponent, CartListComponent, CartsComponent, VoteSuccessComponent, AdminComponent, AdminVerifyComponent, AdminPortalComponent, CartVotesListComponent, CartVoteDetailComponent],
+    declarations: [AppComponent, NavbarComponent, SigninComponent, SignupComponent, LogoutComponent, AuthenticationComponent, CartDetailComponent, CartListComponent, CartsComponent, VoteSuccessComponent, AdminComponent, AdminVerifyComponent, AdminPortalComponent, CartVotesListComponent, CartVoteDetailComponent, ItemComponent],
     imports: [BrowserModule, HttpModule, ROUTING, FormsModule, ReactiveFormsModule],
     bootstrap: [AppComponent],
     providers: [AuthService, CartService, {provide: LocationStrategy, useClass: HashLocationStrategy}]
