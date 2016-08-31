@@ -11,7 +11,7 @@ import { CartService } from "./cart.service";
       <div>
         {{ cart.name }}
         <button (click)="showItems(cart)">Show More</button>
-        <form (ngSubmit)="onSubmit()">
+        <form (ngSubmit)="onSubmit(cart)">
           <button type="submit">VOTE</button>
         </form>
         <div *ngIf="this.expanded">
@@ -44,7 +44,15 @@ export class CartDetailComponent {
     this.expanded = true;
   }
 
-  onSubmit() {
+  onSubmit(cart) {
+    console.log('vote component');
+    this.cartService.vote(cart)
+    .subscribe(
+      response => {
+        console.log(response);
+      },
+      error => console.log('vote error')
+    );
     this.router.navigate(['/carts/vote-success']);
   }
 }

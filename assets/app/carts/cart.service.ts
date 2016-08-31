@@ -13,6 +13,17 @@ export class CartService {
 
   constructor (private _http: Http){}
 
+  vote(cart: Cart){
+    console.log('vote component');
+    const body = JSON.stringify(cart)
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this._http.patch("http://localhost:3000/carts/", body, {headers: headers})
+    .map( response => {
+      return response
+    })
+    .catch(error => Observable.throw(error))
+  }
+
   getCarts(){
       return this._http.get('http://localhost:3000/carts')
       .map(response => {
