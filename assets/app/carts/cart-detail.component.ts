@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-
+import { Router } from '@angular/router';
 import { Cart } from "./cart";
 import { CartService } from "./cart.service";
 
@@ -9,7 +9,9 @@ import { CartService } from "./cart.service";
     <article>
       <div>
         {{ cart.name }}
-        <button>VOTE</button>
+        <form (ngSubmit)="onSubmit()">
+          <button type="submit">VOTE</button>
+        </form>
       </div>
     </article>
   `
@@ -17,5 +19,9 @@ import { CartService } from "./cart.service";
 export class CartDetailComponent {
   @Input() cart:Cart;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
+
+  onSubmit() {
+    this.router.navigate(['/carts/vote-success']);
+  }
 }
