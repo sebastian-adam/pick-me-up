@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
         data => console.log(data),
         error => console.log(error)
       );
-    this.router.navigate(['/auth/signin'])
+    this.router.navigate([''])
   }
 
   ngOnInit() {

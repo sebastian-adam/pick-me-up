@@ -10,7 +10,8 @@ var ObjectId = (require('mongoose').Types.ObjectId);
 
 
 router.get('/menu-items', function(req, res, next) {
-  MenuItem.find({})
+  var cart_id = req.query.cart_id;
+  MenuItem.find({"cart_id": cart_id })
       .exec(function(err, docs) {
           if (err) {
               return res.status(500).json({
