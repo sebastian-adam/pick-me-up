@@ -39,7 +39,6 @@ export class CartDetailComponent {
           this.items = items;
           this.cartService.items = items;
           console.log(this.items);
-          console.log(this.voted);
         },
         error => console.log('im an error')
       );
@@ -55,6 +54,6 @@ export class CartDetailComponent {
       },
       error => console.log('vote error')
     );
-    this.router.navigate(['/carts/vote-success']);
+    this.router.navigate(['/users/vote-success']);
   }
 }
