@@ -26,7 +26,11 @@ export class CartDetailComponent {
   @Input() cart:Cart;
   voted = localStorage.getItem('voted');
 
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(private cartService: CartService, private router: Router) {
+    if(localStorage.getItem('votingClosed')){
+      this.router.navigate(['/users/vote-success']);
+    }
+  }
 
   items: Item[] = [];
   expanded: Boolean = false;
