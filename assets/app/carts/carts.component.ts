@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
   selector: 'carts',
   template: `
     <div>
-      <cart-list></cart-list>
+      <router-outlet></router-outlet>
     </div>
   `
 })
