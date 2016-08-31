@@ -11,7 +11,7 @@ var userRoutes = require('./routes/users');
 var cartRoutes = require('./routes/carts');
 
 var app = express();
-mongoose.connect('localhost:27017/pick-me-up');
+mongoose.connect('test-user:password@ds021346.mlab.com:21346/pick-me-up');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
