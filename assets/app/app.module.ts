@@ -12,6 +12,9 @@ import { ItemComponent } from "./carts/item.component";
 import { CartListComponent } from "./carts/cart-list.component";
 import { CartsComponent } from "./carts/carts.component";
 import { VoteSuccessComponent } from "./carts/vote-success.component";
+import { AdminComponent } from "./admin/admin.component";
+import { CartVotesListComponent } from "./admin/cart-votes-list.component";
+import { CartVoteDetailComponent } from "./admin/cart-vote-detail.component";
 import { AuthService } from './auth/auth.service';
 import { CartService } from './carts/cart.service';
 import { HttpModule } from '@angular/http';
@@ -20,7 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-    declarations: [AppComponent, NavbarComponent, SigninComponent, SignupComponent, LogoutComponent, AuthenticationComponent, CartDetailComponent, CartListComponent, CartsComponent, VoteSuccessComponent, ItemComponent],
+    declarations: [AppComponent, NavbarComponent, SigninComponent, SignupComponent, LogoutComponent, AuthenticationComponent, CartDetailComponent, CartListComponent, CartsComponent, VoteSuccessComponent, ItemComponent, AdminComponent],
     imports: [BrowserModule, HttpModule, ROUTING, FormsModule, ReactiveFormsModule],
     bootstrap: [AppComponent],
     providers: [AuthService, CartService]
