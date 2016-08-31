@@ -10,6 +10,8 @@ import { AuthenticationComponent } from './auth/authentication.component';
 import { CartDetailComponent } from "./users/cart-detail.component";
 import { ItemComponent } from "./users/item.component";
 import { CartListComponent } from "./users/cart-list.component";
+import { OrderListComponent } from "./users/order-list.component";
+import { OrderDetailComponent } from "./users/order-detail.component";
 import { UsersComponent } from "./users/users.component";
 import { VoteSuccessComponent } from "./users/vote-success.component";
 import { AdminComponent } from "./admin/admin.component";
@@ -19,6 +21,7 @@ import { CartVotesListComponent } from "./admin/cart-votes-list.component";
 import { CartVoteDetailComponent } from "./admin/cart-vote-detail.component";
 import { AuthService } from './auth/auth.service';
 import { CartService } from './users/cart.service';
+import { OrderService} from './users/order.service'
 import { HttpModule } from '@angular/http';
 import { ROUTING } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,10 +29,10 @@ import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 
 
 @NgModule({
-    declarations: [AppComponent, NavbarComponent, SigninComponent, SignupComponent, LogoutComponent, AuthenticationComponent, CartDetailComponent, CartListComponent, UsersComponent, VoteSuccessComponent, AdminComponent, AdminVerifyComponent, AdminPortalComponent, CartVotesListComponent, CartVoteDetailComponent, ItemComponent],
+    declarations: [AppComponent, NavbarComponent, SigninComponent, SignupComponent, LogoutComponent, AuthenticationComponent, CartDetailComponent, CartListComponent, UsersComponent, VoteSuccessComponent, AdminComponent, AdminVerifyComponent, AdminPortalComponent, CartVotesListComponent, CartVoteDetailComponent, ItemComponent,OrderListComponent,OrderDetailComponent],
     imports: [BrowserModule, HttpModule, ROUTING, FormsModule, ReactiveFormsModule],
     bootstrap: [AppComponent],
-    providers: [AuthService, CartService, {provide: LocationStrategy, useClass: HashLocationStrategy}]
+    providers: [AuthService, CartService, OrderService, {provide: LocationStrategy, useClass: HashLocationStrategy}]
 })
 export class AppModule {
 
