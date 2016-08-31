@@ -30,7 +30,7 @@ export class CartService {
     const headers = new Headers({'Content-Type': 'application/json'});
     return  this._http.patch("http://localhost:3000/carts/", body, {headers: headers})
     .map( response => {
-      console.log(response);
+      return response.json();
     })
     .catch(error => Observable.throw(error))
   }

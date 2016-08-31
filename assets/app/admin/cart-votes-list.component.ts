@@ -8,12 +8,16 @@ import { CartService } from '../carts/cart.service';
     <h1>Cart Votes</h1>
     <section>
       <cart-vote-detail *ngFor="let cart of carts" [cart]="cart"></cart-vote-detail>
+      <div>
+        <button (click)="closeVote()">Close Voting</button>
+      </div>
     </section>
   `
 })
 export class CartVotesListComponent implements OnInit {
 
   carts: Cart[] = [];
+  votedCart: Cart;
 
   constructor(public cartService: CartService) {}
 
@@ -26,5 +30,17 @@ export class CartVotesListComponent implements OnInit {
         },
         error => console.log('Youz got another error playboi')
       );
+  }
+
+  closeVote(){
+    this.cartService.closeVoting().subscribe(
+      response => {
+        this.votedCart = response;
+        console.log(this.votedCart);
+      },
+      error => {
+        error => console.log('im an error for close voting');
+      }
+    );
   }
 }

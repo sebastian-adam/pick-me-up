@@ -11,11 +11,8 @@ import { CartService } from "./cart.service";
       <div>
         {{ cart.name }} {{cart.votes}}
         <button (click)="showItems(cart)">Show More</button>
-        <form (ngSubmit)="onSubmit(cart)">
+        <form *ngIf="!this.voted" (ngSubmit)="onSubmit(cart)">
           <button type="submit">VOTE</button>
-        </form>
-        <form (click)="closeVote()">
-          <button type="submit">close_test</button>
         </form>
         <div *ngIf="this.expanded">
           <menu-item *ngFor="let item of items" [item]="item"></menu-item>
@@ -27,23 +24,12 @@ import { CartService } from "./cart.service";
 })
 export class CartDetailComponent {
   @Input() cart:Cart;
+  voted = localStorage.getItem('voted');
 
   constructor(private cartService: CartService, private router: Router) {}
 
   items: Item[] = [];
   expanded: Boolean = false;
-
-  closeVote(){
-    this.cartService.closeVoting().subscribe(
-      response => {
-        console.log(response);
-        localStorage.setItem('votedCart', response);
-      },
-      error => {
-        error => console.log('im an error for close voting');
-      }
-    );
-  }
 
   showItems(cart) {
     console.log(cart);
@@ -53,6 +39,7 @@ export class CartDetailComponent {
           this.items = items;
           this.cartService.items = items;
           console.log(this.items);
+          console.log(this.voted);
         },
         error => console.log('im an error')
       );
@@ -63,6 +50,7 @@ export class CartDetailComponent {
     this.cartService.vote(cart)
     .subscribe(
       response => {
+        localStorage.setItem('voted', 'true');
         console.log(response);
       },
       error => console.log('vote error')
