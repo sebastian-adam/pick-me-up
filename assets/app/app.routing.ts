@@ -6,7 +6,7 @@ import { CartListComponent } from "./carts/cart-list.component";
 
 const APP_ROUTES: Routes = [
   { path: '', component: CartListComponent},
-  {path: 'auth', component: AuthenticationComponent, children: [
+  { path: 'auth', component: AuthenticationComponent, children: [
     ...AUTHENTICATION_ROUTES
   ] }
 ];
