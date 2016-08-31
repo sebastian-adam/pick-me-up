@@ -9,7 +9,7 @@ import { CartService } from "./cart.service";
   template: `
     <article>
       <div>
-        {{ cart.name }}
+        {{ cart.name }} {{cart.votes}}
         <button (click)="showItems(cart)">Show More</button>
         <form (ngSubmit)="onSubmit(cart)">
           <button type="submit">VOTE</button>
@@ -45,7 +45,6 @@ export class CartDetailComponent {
   }
 
   onSubmit(cart) {
-    console.log('vote component');
     this.cartService.vote(cart)
     .subscribe(
       response => {

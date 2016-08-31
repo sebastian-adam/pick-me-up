@@ -46,5 +46,26 @@ router.get('/', function(req, res, next) {
 
 });
 
+router.patch('/', function(req, res, next) {
+  var cart_id = req.body.id;
+  Cart.findOneAndUpdate({
+    _id: cart_id
+  },
+  {
+    $inc: {votes: 1}
+  }).exec(function (err, docs) {
+    if (err) {
+        return res.status(500).json({
+            title: 'An error occurred',
+            error: err
+        });
+    }
+    res.status(200).json({
+        message: 'Success',
+        obj: docs
+    });
+  });
+});
+
 
 module.exports = router;
