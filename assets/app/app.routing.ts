@@ -5,6 +5,8 @@ import { AuthenticationComponent } from "./auth/authentication.component";
 import { CARTS_ROUTES } from "./carts/cart.routes";
 import { CartsComponent } from "./carts/carts.component";
 import { CartListComponent } from "./carts/cart-list.component";
+import { ADMIN_ROUTES } from "./admin/admin.routes";
+import { AdminComponent } from "./admin/admin.component";
 
 
 const APP_ROUTES: Routes = [
@@ -14,6 +16,9 @@ const APP_ROUTES: Routes = [
   ] },
   { path: 'carts', component: CartsComponent, children: [
     ...CARTS_ROUTES
+  ] },
+  { path: 'admin', component: AdminComponent, children: [
+    ...ADMIN_ROUTES
   ] }
 ];
 

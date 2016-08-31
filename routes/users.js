@@ -17,10 +17,18 @@ router.post('/', function(req, res, next) {
         error: err
       });
     }
-    res.status(200).json({
-      message: 'Success',
-      obj: result
-    });
+    if (result) {
+      User.findOne({email: req.body.email}, function(err, doc) {
+        var token = jwt.sign({user: doc}, 'secret', {expiresIn: 7200});
+        res.status(200).json({
+          message: 'Success',
+          token: token,
+          userEmail: doc.email,
+          userName: doc.name,
+          userId: doc._id
+        });
+      });
+    }
   });
 });
 
