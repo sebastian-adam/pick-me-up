@@ -35,7 +35,13 @@ export class SignupComponent implements OnInit {
     const user = new User(this.myForm.value.email, this.myForm.value.password, this.myForm.value.name);
     this.authService.signup(user)
       .subscribe(
-        data => console.log(data),
+        data => {
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('userId', data.userId);
+          localStorage.setItem('userName', data.userName);
+          localStorage.setItem('userEmail', data.userEmail);
+          this.router.navigate(['']);
+        },
         error => console.log(error)
       );
     this.router.navigate([''])
