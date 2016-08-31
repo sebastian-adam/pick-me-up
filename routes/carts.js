@@ -27,6 +27,18 @@ router.get('/menu-items', function(req, res, next) {
 
 });
 
+router.get('/most-voted', function(req,res,next){
+  Cart.find().sort({"votes": -1}).limit(1).exec(function(err, doc){
+    if(err){
+      return res.status(500).json({
+        title: 'An error occured. Check Database',
+        error: err
+      });
+    }
+    res.status(200).json(doc);
+  });
+});
+
 
 
 router.get('/', function(req, res, next) {

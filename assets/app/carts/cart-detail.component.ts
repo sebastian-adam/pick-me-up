@@ -14,6 +14,9 @@ import { CartService } from "./cart.service";
         <form (ngSubmit)="onSubmit(cart)">
           <button type="submit">VOTE</button>
         </form>
+        <form (click)="closeVote()">
+          <button type="submit">close_test</button>
+        </form>
         <div *ngIf="this.expanded">
           <menu-item *ngFor="let item of items" [item]="item"></menu-item>
         </div>
@@ -29,6 +32,18 @@ export class CartDetailComponent {
 
   items: Item[] = [];
   expanded: Boolean = false;
+
+  closeVote(){
+    this.cartService.closeVoting().subscribe(
+      response => {
+        console.log(response);
+        localStorage.setItem('votedCart', response);
+      },
+      error => {
+        error => console.log('im an error for close voting');
+      }
+    );
+  }
 
   showItems(cart) {
     console.log(cart);

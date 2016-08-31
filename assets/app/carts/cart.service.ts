@@ -10,8 +10,20 @@ export class CartService {
 
   carts: Cart[] = [];
   items: Item[] = [];
+  cart: Cart;
 
   constructor (private _http: Http){}
+
+  closeVoting(){
+    return this._http.get('http://localhost:3000/carts/most-voted')
+    .map(
+      response => {
+        console.log(response.json());
+        this.cart = response.json();
+        return response.json();
+      })
+      .catch( error => Observable.throw(error))
+  }
 
   vote(cart: Cart){
     const body = JSON.stringify(cart)
