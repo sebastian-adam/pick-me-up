@@ -20,6 +20,7 @@ export class CartService {
       response => {
         this.votedCart = response.json();
         console.log(this.votedCart);
+        localStorage.setItem('votingClosed', 'true');
         return response.json();
       })
       .catch( error => Observable.throw(error))

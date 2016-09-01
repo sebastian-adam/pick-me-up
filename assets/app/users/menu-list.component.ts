@@ -1,5 +1,5 @@
 import { Input, Component } from "@angular/core";
-import { Order } from "./order";
+import { Order } from "../admin/order";
 import { Item } from "./item";
 
 @Component({
