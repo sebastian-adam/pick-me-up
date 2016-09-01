@@ -9,6 +9,8 @@ import { Order } from "./order";
     <h1>this is Order lists!</h1>
     <section>
        <order-detail *ngFor="let order of orders" [order]=order></order-detail>
+       <br>
+       <button (click)="resetOrders()">Reset Orders</button>
     </section>
   `
 })
@@ -17,6 +19,18 @@ export class OrderListComponent implements OnInit {
   orders: Order[] = [];
 
   constructor(private orderService: OrderService) {}
+
+  resetOrders(){
+    this.orderService.reset()
+      .subscribe(
+        result => {
+          console.log(result);
+        },
+        error => {
+          console.log('error');
+        }
+      );
+  }
 
   ngOnInit(){
     this.orderService.getOrders()
