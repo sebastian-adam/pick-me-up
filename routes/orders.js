@@ -33,4 +33,18 @@ router.post('/', function(req, res, next){
   });
 });
 
+router.delete('/', function(req, res, next) {
+  Order.remove({}, function(err, result) {
+    if (err) {
+      return res.status(400).json({
+        error: err
+      });
+    } else {
+      res.status(200).json({
+        result: result
+      });
+    }
+  });
+});
+
 module.exports = router;
