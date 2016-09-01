@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'admin-portal',
@@ -7,11 +8,23 @@ import { Component } from "@angular/core";
       <cart-votes-list></cart-votes-list>
     </div>
     <div>
-      <h3>Orders Recieved: ???</h3>
-      <button>Close Ordering</button>
+
+      <button (click)="closeOrdering()">Close Ordering</button>
     </div>
   `
 })
 export class AdminPortalComponent {
 
+  constructor(private router: Router){
+    if(localStorage.getItem('closeOrdering')){
+      this.router.navigate(['/admin/order-list'])
+    }
+  }
+
+
+  closeOrdering(){
+    console.log("close ordering");
+    localStorage.setItem('closeOrdering', 'true');
+    this.router.navigate(['/admin/order-list']);
+  }
 }

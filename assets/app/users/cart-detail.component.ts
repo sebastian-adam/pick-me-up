@@ -28,7 +28,7 @@ export class CartDetailComponent {
 
   constructor(private cartService: CartService, private router: Router) {
     if(localStorage.getItem('votingClosed')){
-      this.router.navigate(['/users/order-list']);
+      this.router.navigate(['/admin/order-list']);
     }
   }
 

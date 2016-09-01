@@ -3,6 +3,7 @@ var router = express.Router();
 var Order = require('../models/order');
 
 router.get('/', function(req, res, next){
+
   Order.find().populate('user_id item_id').exec(function(err, doc){
     if(err){
       res.status(400).json({

@@ -27,12 +27,14 @@ export class OrderService {
       }).catch( error => Observable.throw(error));
   }
 
-  createOrder(item){
-    return this._http.post('http://loclhost:3000/orders').map(
+  createOrder(order){
+    const body = JSON.stringify(order);
+    const headers = new Headers({'Content-Type':'application/json'});
+    return this._http.post('http://loclhost:3000/orders', body, {headers: headers}).map(
       response => {
         console.log(response);
       }
-    )
+    ).catch(error => Observable.throw(error));
   }
 
 }
