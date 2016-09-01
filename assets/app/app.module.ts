@@ -12,6 +12,8 @@ import { ItemComponent } from "./users/item.component";
 import { CartListComponent } from "./users/cart-list.component";
 import { UsersComponent } from "./users/users.component";
 import { VoteSuccessComponent } from "./users/vote-success.component";
+import { MenuDetailComponent } from "./users/menu-detail.component";
+import { MenuListComponent } from "./users/menu-list.component";
 import { AdminComponent } from "./admin/admin.component";
 import { AdminVerifyComponent } from "./admin/admin-verify.component";
 import { AdminPortalComponent } from "./admin/admin-portal.component";
@@ -26,7 +28,7 @@ import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 
 
 @NgModule({
-    declarations: [AppComponent, NavbarComponent, SigninComponent, SignupComponent, LogoutComponent, AuthenticationComponent, CartDetailComponent, CartListComponent, UsersComponent, VoteSuccessComponent, AdminComponent, AdminVerifyComponent, AdminPortalComponent, CartVotesListComponent, CartVoteDetailComponent, ItemComponent],
+    declarations: [AppComponent, NavbarComponent, SigninComponent, SignupComponent, LogoutComponent, AuthenticationComponent, CartDetailComponent, CartListComponent, UsersComponent, VoteSuccessComponent, MenuDetailComponent, MenuListComponent, AdminComponent, AdminVerifyComponent, AdminPortalComponent, CartVotesListComponent, CartVoteDetailComponent, ItemComponent],
     imports: [BrowserModule, HttpModule, ROUTING, FormsModule, ReactiveFormsModule],
     bootstrap: [AppComponent],
     providers: [AuthService, CartService, {provide: LocationStrategy, useClass: HashLocationStrategy}]
