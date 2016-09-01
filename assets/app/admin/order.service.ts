@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {User} from '../auth/user'
-import {Item} from './item';
+import {Item} from '../users/item';
 import {Order} from './order';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
@@ -25,6 +25,14 @@ export class OrderService {
         console.log(obj);
         return obj;
       }).catch( error => Observable.throw(error));
+  }
+
+  createOrder(item){
+    return this._http.post('http://loclhost:3000/orders').map(
+      response => {
+        console.log(response);
+      }
+    )
   }
 
 }
