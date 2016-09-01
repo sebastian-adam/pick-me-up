@@ -9,13 +9,14 @@ var mongoose = require('mongoose');
 var appRoutes = require('./routes/app');
 var userRoutes = require('./routes/users');
 var cartRoutes = require('./routes/carts');
+var orderRoutes = require('./routes/orders');
 
 var app = express();
 
- // mongoose.connect('localhost:27017/pick-me-up');
+  mongoose.connect('localhost:27017/pick-me-up');
 // mongoose.set('debug', true);
 
-mongoose.connect('test-user:password@ds021346.mlab.com:21346/pick-me-up');
+//mongoose.connect('test-user:password@ds021346.mlab.com:21346/pick-me-up');
 
 
 // view engine setup
@@ -38,6 +39,7 @@ app.use(function(req, res, next) {
 
 app.use('/carts', cartRoutes);
 app.use('/user', userRoutes);
+app.use('/orders', orderRoutes);
 app.use('/', appRoutes);
 
 // catch 404 and forward to error handler

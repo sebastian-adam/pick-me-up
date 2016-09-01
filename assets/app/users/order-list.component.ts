@@ -8,7 +8,7 @@ import { Order } from "./order";
   template: `
     <h1>this is Order lists!</h1>
     <section>
-       <order-detail *ngFor="let order of orders" [order]="order"></order-detail>
+       <order-detail *ngFor="let order of orders" [order]=order></order-detail>
     </section>
   `
 })
@@ -18,5 +18,17 @@ export class OrderListComponent implements OnInit {
 
   constructor(private orderService: OrderService) {}
 
-  ngOnInit(){}
+  ngOnInit(){
+    this.orderService.getOrders()
+      .subscribe(
+      orders => {
+      console.log(orders);
+      this.orders = orders;
+      this.orderService.orders = orders;
+      },
+      error => {
+      console.log('error')
+    });
+  }
 }
+//*ngFor="let order of orders"

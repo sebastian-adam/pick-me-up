@@ -1,4 +1,4 @@
-import { Input, Component } from "@angular/core";
+import {Input, Component, OnInit } from "@angular/core";
 import {Order} from "./order";
 import {OrderService} from "./order.service";
 
@@ -6,7 +6,7 @@ import {OrderService} from "./order.service";
   selector: 'order-detail',
   template: `
     <div>
-      <h4>{{order.name}}....\${{order.price}}</h4>
+      {{order.user.name}}......{{order.item.name}}
     </div>
   `,
 })
@@ -14,4 +14,7 @@ export class OrderDetailComponent {
   @Input() order: Order;
 
   constructor(private orderService: OrderService){}
+  onInit(){
+    console.log(this.order);
+  }
 }

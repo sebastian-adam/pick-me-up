@@ -14,7 +14,17 @@ export class OrderService {
   constructor (private _http: Http){}
 
   getOrders(){
-
+    return this._http.get('http://localhost:3000/orders').map(
+      response => {
+        const data = response.json().obj;
+        let obj: any[] = [];
+        for(let i = 0; i < data.length; i++){
+          let order = new Order(data[i].user_id, data[i].item_id);
+          obj.push(order);
+        }
+        console.log(obj);
+        return obj;
+      }).catch( error => Observable.throw(error));
   }
 
 }
