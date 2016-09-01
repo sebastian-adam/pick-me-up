@@ -45,6 +45,7 @@ export class CartService {
             let cart = new Cart(data[i].name, data[i].phone, data[i].location, data[i].votes, data[i]._id);
             obj.push(cart);
           }
+          this.carts = obj;
           return obj;
         })
         .catch(error => Observable.throw(error));
@@ -63,6 +64,16 @@ export class CartService {
       return obj;
     })
     .catch(error => Observable.throw(error));
+  }
+
+  resetVotes(){
+    console.log('vote reset service');
+    const body = JSON.stringify(this.carts[0]);
+    return this._http.patch('http://localhost:3000/carts/reset', body).map(
+      response => {
+        console.log(response);
+      }
+    ).catch(error => Observable.throw(error));
   }
 
 }

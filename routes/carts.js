@@ -78,5 +78,14 @@ router.patch('/', function(req, res, next) {
   });
 });
 
+router.patch('/reset', function(req, res, next) {
+  Cart.update({}, {votes: 0}, {multi: true}, function(err, num) {
+    if(err){
+      return res.status(400).json({message: req.body});
+    }
+    return res.status(200).json({message: num});
+  });
+});
+
 
 module.exports = router;
