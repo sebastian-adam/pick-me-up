@@ -2,6 +2,7 @@ import { Component, Input } from "@angular/core";
 import { Router } from '@angular/router';
 import { Cart } from "./cart";
 import { Item } from "./item";
+import { ItemComponent } from "./item.component";
 import { CartService } from "./cart.service";
 
 @Component({

@@ -5,10 +5,10 @@ import { OrderService } from "../admin/order.service";
 
 
 @Component({
-  selector: 'menu-item',
+  selector: 'menu-detail',
   template: `
     <div>
-      <h4>{{item.name}}....\${{item.price}}</h4>
+      <menu-item></menu-item>
       <form [formGroup]="myForm" (ngSubmit)="onSubmit(item)">
         <button>Add to my Order</button>
       </form>
