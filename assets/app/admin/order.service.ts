@@ -30,7 +30,15 @@ export class OrderService {
   createOrder(order){
     const body = JSON.stringify(order);
     const headers = new Headers({'Content-Type':'application/json'});
-    return this._http.post('http://loclhost:3000/orders', body, {headers: headers}).map(
+    return this._http.post('http://localhost:3000/orders', body, {headers: headers}).map(
+      response => {
+        console.log(response);
+      }
+    ).catch(error => Observable.throw(error));
+  }
+
+  reset() {
+    return this._http.delete('http://localhost:3000/orders').map(
       response => {
         console.log(response);
       }
