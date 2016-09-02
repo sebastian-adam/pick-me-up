@@ -19,6 +19,7 @@ router.get('/menu-items', function(req, res, next) {
                   error: err
               });
           }
+          console.log(docs);
           res.status(200).json({
               message: 'Success',
               obj: docs

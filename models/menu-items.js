@@ -5,7 +5,7 @@ var mongooseUniqueValidator = require('mongoose-unique-validator');
 var schema = new Schema({
   name: { type: String, required: true },
   price: { type: Number, required: true },
-  cart_id: { type: Schema.Types.ObjectId, ref: 'Cart' }
+  cart_id: {type: String} 
 });
 
 schema.plugin(mongooseUniqueValidator);
