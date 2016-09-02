@@ -11,7 +11,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms"
           <label for="password">Password</label>
           <input formControlName="password" type="text" id="password">
         </div>
-      <button type="submit" [disabled]="!myForm.valid">Continue to Admin Portal</button>
+      <button type="submit">Continue to Admin Portal</button>
     </form>
   </section>
   `

@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Item } from "./item";
-import { ItemComponent } from "./item.component";
 import { Cart } from "./cart";
 import { CartService } from "./cart.service";
 
@@ -19,6 +18,7 @@ export class MenuListComponent implements OnInit {
   items: Item[] = [];
 
   ngOnInit() {
+    console.log(this.cartService.votedCart);
     this.cartService.getItems(this.cartService.votedCart)
       .subscribe(
         items => {

@@ -1,15 +1,23 @@
 import { Input, Component } from "@angular/core";
 import { Item } from "./item";
+import { ItemComponent } from "./item.component";
 import { Order } from "../admin/order";
 import { OrderService } from "../admin/order.service";
+//
+// String.prototype.toObjectId = function() {
+//   var ObjectId = (require('mongoose').Types.ObjectId);
+//   return new ObjectId(this.toString());
+// };
+
+
 
 
 @Component({
   selector: 'menu-detail',
   template: `
     <div>
-      <menu-item></menu-item>
-      <form [formGroup]="myForm" (ngSubmit)="onSubmit(item)">
+      <menu-item [item]=item></menu-item>
+      <form (ngSubmit)="onSubmit(item)">
         <button>Add to my Order</button>
       </form>
     </div>
@@ -21,7 +29,10 @@ export class MenuDetailComponent {
   constructor(private orderService: OrderService) {}
 
   onSubmit(item) {
-    const order = new Order(item.id, localStorage.getItem('userId'));
+    const order = new Order(localStorage.getItem('userId'), item.cartId);
+    console.log(item.cartIds);
+    console.log( localStorage.getItem('userId'));
+    console.log(order);
     this.orderService.createOrder(order)
     .subscribe(
       response => {

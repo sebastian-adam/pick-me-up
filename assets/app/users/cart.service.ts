@@ -18,10 +18,15 @@ export class CartService {
     return this._http.get('http://localhost:3000/carts/most-voted')
     .map(
       response => {
-        this.votedCart = response.json();
+        const data = response.json();
+        console.log(response);
+
+        const cart = new Cart(data.name, data.phone, data.location, data.votes, data._id);
+
+        this.votedCart = cart;
         console.log(this.votedCart);
         localStorage.setItem('votingClosed', 'true');
-        return response.json();
+        return cart;
       })
       .catch( error => Observable.throw(error))
   }
@@ -52,10 +57,12 @@ export class CartService {
   }
 
   getItems(cart){
-    var cartId = cart.id;
+    console.log(cart);
+    var cartId = cart._id;
     return this._http.get('http://localhost:3000/carts/menu-items?cart_id=' + cartId)
     .map(response => {
       const data = response.json().obj;
+      console.log(data);
       let obj: any[] = [];
       for(let i = 0; i < data.length; i++){
         let item = new Item(data[i].name, data[i].price, cartId);

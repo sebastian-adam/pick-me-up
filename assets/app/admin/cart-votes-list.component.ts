@@ -35,8 +35,8 @@ export class CartVotesListComponent implements OnInit {
   closeVote(){
     this.cartService.closeVoting().subscribe(
       response => {
-        this.votedCart = response;
-        console.log(this.votedCart);
+        //this.votedCart = response;
+        console.log(this.cartService.votedCart);
       },
       error => {
         error => console.log('im an error for close voting');
