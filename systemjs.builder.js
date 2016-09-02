@@ -4,7 +4,7 @@ var del = require('del');
 
 var builder = new Builder('public', 'public/systemjs.config.js');
 
-builder.bundle('app/boot.js', './public/js/app/boot.js', { minify: true, encodeNames: false })
+builder.bundle('app/boot.js', './public/js/app/boot.js', { minify: true, mangle: false, encodeNames: false })
     .then(function() {
         del(['./public/js/app/**/*.js', '!./public/js/app/**/{boot.js,*.html,*.htm,*.css}'])
             .then(function(paths) {
