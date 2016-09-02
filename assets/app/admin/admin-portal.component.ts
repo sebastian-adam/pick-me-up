@@ -10,9 +10,9 @@ import {OrderService} from './order.service';
       <cart-votes-list></cart-votes-list>
     </div>
     <div>
-
-      <button (click)="closeOrdering()">Close Ordering</button>
-      <button (click)="reset()">reset</button>
+      <br>
+      <button class="btn btn-warning" (click)="closeOrdering()">Close Ordering</button>
+      <button class="btn btn-danger" (click)="reset()">reset</button>
     </div>
   `
 })
@@ -40,8 +40,7 @@ export class AdminPortalComponent {
     );
     this.cartService.getCarts();
     //this.orderService.resetOrders();
-    localStorage.removeItem('closeOrdering');
-    localStorage.removeItem('votingClosed');
-    localStorage.removeItem('voted');
+    localStorage.clear();
+
   }
 }

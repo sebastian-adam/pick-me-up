@@ -2,15 +2,16 @@ import { Component, OnInit} from "@angular/core";
 import { Item } from "../users/item";
 import { OrderService } from "./order.service";
 import { Order } from "./order";
+import { CartService} from "../users/cart.service"
 
 @Component({
   selector: 'order-list',
   template: `
-    <h1>this is Order lists!</h1>
+    <h1>Here Are Today's Orders!</h1>
     <section>
        <order-detail *ngFor="let order of orders" [order]=order></order-detail>
        <br>
-       <button (click)="resetOrders()">Reset Orders</button>
+       <button class="btn btn-danger" (click)="resetOrders()">Reset Orders</button>
     </section>
   `
 })
@@ -18,7 +19,7 @@ export class OrderListComponent implements OnInit {
 
   orders: Order[] = [];
 
-  constructor(private orderService: OrderService) {}
+  constructor(private orderService: OrderService, private cartService: CartService) {}
 
   resetOrders(){
     this.orderService.reset()
@@ -30,6 +31,13 @@ export class OrderListComponent implements OnInit {
           console.log('error');
         }
       );
+      this.cartService.resetVotes()
+        .subscribe(response => {
+          console.log(response);
+        },
+          error => console.log('Youz got another error playboi')
+      );
+      localStorage.clear();
   }
 
   ngOnInit(){

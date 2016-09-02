@@ -18,7 +18,7 @@ import { OrderService } from "../admin/order.service";
     <div>
       <menu-item [item]=item></menu-item>
       <form (ngSubmit)="onSubmit(item)">
-        <button>Add to my Order</button>
+        <button class="btn btn-success">Add to my Order</button>
       </form>
     </div>
   `,

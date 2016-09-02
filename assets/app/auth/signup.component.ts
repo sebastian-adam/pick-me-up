@@ -7,21 +7,22 @@ import { User } from "./user";
 @Component({
   selector: 'sign-up',
   template: `
+
     <section>
       <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-        <div>
+        <div class="form-group">
           <label for="name">Name</label>
-          <input formControlName="name" id="name">
+          <input  class="form-control" formControlName="name" id="name">
         </div>
         <div>
           <label for="email">Email</label>
-          <input formControlName="email" type="email" id="email">
+          <input class="form-control" formControlName="email" type="email" id="email">
         </div>
         <div>
           <label for="password">Password</label>
-          <input formControlName="password" type="password" id="password">
+          <input class="form-control" formControlName="password" type="password" id="password">
         </div>
-        <button type="submit">Sign Up</button>
+        <button class="btn btn-success" type="submit">Sign Up</button>
       </form>
     </section>
   `

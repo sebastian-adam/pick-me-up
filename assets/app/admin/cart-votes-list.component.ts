@@ -9,7 +9,7 @@ import { CartService } from '../users/cart.service';
     <section>
       <cart-vote-detail *ngFor="let cart of carts" [cart]="cart"></cart-vote-detail>
       <div>
-        <button (click)="closeVote()">Close Voting</button>
+        <button class="btn btn-warning" (click)="closeVote()">Close Voting</button>
       </div>
     </section>
   `

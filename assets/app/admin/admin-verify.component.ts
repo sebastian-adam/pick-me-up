@@ -7,11 +7,11 @@ import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms"
   template: `
     <section>
       <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-        <div>
+        <div class="form-group">
           <label for="password">Password</label>
-          <input formControlName="password" type="text" id="password">
+          <input class="form-group" formControlName="password" type="password" id="password">
         </div>
-      <button type="submit">Continue to Admin Portal</button>
+      <button class="btn btn-default" type="submit">Continue to Admin Portal</button>
     </form>
   </section>
   `

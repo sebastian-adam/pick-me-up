@@ -7,7 +7,7 @@ import { AuthService } from "./auth.service";
   selector: 'logout',
   template: `
     <section>
-      <button (click)="onLogout()">Logout</button>
+      <button class="btn btn-danger" (click)="onLogout()">Logout</button>
     </section>
   `
 })

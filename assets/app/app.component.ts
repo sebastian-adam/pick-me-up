@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
       <h1>Pick Me Up</h1>
     </div>
     <br>
-    <router-outlet></router-outlet>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
     `
 })
 export class AppComponent {

@@ -5,7 +5,7 @@ import {Item} from "./item";
   selector: 'menu-item',
   template: `
     <div>
-      <h4>{{item.name}}....\${{item.price}}</h4>
+      <h4>{{item.name}} ------------- \${{item.price}}</h4>
     </div>
   `,
 })

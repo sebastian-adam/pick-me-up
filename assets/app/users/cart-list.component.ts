@@ -5,7 +5,7 @@ import { CartService } from "./cart.service";
 @Component({
   selector: 'cart-list',
   template: `
-    <h1>this is cart lists!</h1>
+    <h1>CARTS</h1>
     <section>
        <cart-detail *ngFor="let cart of carts" [cart]="cart"></cart-detail>
     </section>

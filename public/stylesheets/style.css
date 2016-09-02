@@ -21,3 +21,15 @@ a.danger {
 .spacing {
   margin-bottom: 20px;
 }
+
+.well {
+  box-shadow: 2px 2px 15px purple;
+}
+
+form {
+  margin: 5px;
+}
+
+button {
+  margin: 10px;
+}

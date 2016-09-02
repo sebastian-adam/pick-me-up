@@ -11,17 +11,17 @@ import { Router } from '@angular/router';
   template: `
     <section>
       <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-        <div>
+        <div class="form-group">
           <label for="email">Email</label>
-          <input formControlName="email" type="text" id="email">
+          <input class="form-control"  formControlName="email" type="text" id="email">
         </div>
         <div>
           <label for="password">Password</label>
-          <input formControlName="password" type="password" id="password">
+          <input class="form-control" formControlName="password" type="password" id="password">
         </div>
-      <button type="submit">Sign In</button>
-    </form>
-  </section>
+        <button class="btn btn-success" type="submit">Sign In</button>
+      </form>
+    </section>
   `
 })
 export class SigninComponent implements OnInit {
