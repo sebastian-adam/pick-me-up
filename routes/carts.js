@@ -59,7 +59,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.patch('/', function(req, res, next) {
-  var cart_id = req.body.id;
+  var cart_id = req.body._id;
   Cart.findOneAndUpdate({
     _id: cart_id
   },
