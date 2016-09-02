@@ -36,7 +36,7 @@ router.get('/most-voted', function(req,res,next){
         error: err
       });
     }
-    res.status(200).json(doc);
+    res.status(200).json(doc[0]);
   });
 });
 

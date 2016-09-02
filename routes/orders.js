@@ -3,8 +3,8 @@ var router = express.Router();
 var Order = require('../models/order');
 
 router.get('/', function(req, res, next){
-
-  Order.find().populate('user_id item_id').exec(function(err, doc){
+  Order.find().populate('user_id item_id')
+  .exec(function(err, doc){
     if(err){
       res.status(400).json({
           message: "bad"
@@ -20,7 +20,7 @@ router.get('/', function(req, res, next){
 
 router.post('/', function(req, res, next){
 
-  var order = new Order({user_id: req.body.user_id, item_id: req.body.item_id});
+  var order = new Order({user_id: req.body.user, item_id: req.body.item});
   order.save(function(err, result){
     if(err){
       return res.status(400).json({
@@ -30,6 +30,20 @@ router.post('/', function(req, res, next){
     res.status(200).json({
       result: result
     });
+  });
+});
+
+router.delete('/', function(req, res, next) {
+  Order.remove({}, function(err, result) {
+    if (err) {
+      return res.status(400).json({
+        error: err
+      });
+    } else {
+      res.status(200).json({
+        result: result
+      });
+    }
   });
 });
 

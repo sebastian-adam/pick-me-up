@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Router } from '@angular/router';
 import { Cart } from "./cart";
 import { Item } from "./item";
+import { ItemComponent } from "./item.component";
 import { CartService } from "./cart.service";
 
 @Component({
@@ -28,7 +29,7 @@ export class CartDetailComponent {
 
   constructor(private cartService: CartService, private router: Router) {
     if(localStorage.getItem('votingClosed')){
-      this.router.navigate(['/admin/order-list']);
+      this.router.navigate(['/users/menu-list']);
     }
   }
 
