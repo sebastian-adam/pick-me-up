@@ -16,7 +16,7 @@ export class OrderService {
   constructor (private _http: Http){}
 
   getOrders(){
-    return this._http.get('http://localhost:3000/orders').map(
+    return this._http.get('https://pick-me-up-mea2n.herokuapp.com/orders').map(
       response => {
         const data = response.json().obj;
         console.log(data);
@@ -34,7 +34,7 @@ export class OrderService {
     const body = JSON.stringify(order);
     console.log(body);
     const headers = new Headers({'Content-Type':'application/json'});
-    return this._http.post('http://localhost:3000/orders', body, {headers: headers}).map(
+    return this._http.post('https://pick-me-up-mea2n.herokuapp.com/orders', body, {headers: headers}).map(
       response => {
         const data = response.json().obj;
         console.log(data);
@@ -43,7 +43,7 @@ export class OrderService {
   }
 
   reset() {
-    return this._http.delete('http://localhost:3000/orders').map(
+    return this._http.delete('https://pick-me-up-mea2n.herokuapp.com/orders').map(
       response => {
         console.log(response);
       }

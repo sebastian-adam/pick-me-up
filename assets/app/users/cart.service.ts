@@ -15,7 +15,7 @@ export class CartService {
   constructor (private _http: Http){}
 
   closeVoting(){
-    return this._http.get('http://localhost:3000/carts/most-voted')
+    return this._http.get('https://pick-me-up-mea2n.herokuapp.com/carts/most-voted')
     .map(
       response => {
         const data = response.json();
@@ -34,7 +34,7 @@ export class CartService {
   vote(cart: Cart){
     const body = JSON.stringify(cart)
     const headers = new Headers({'Content-Type': 'application/json'});
-    return  this._http.patch("http://localhost:3000/carts/", body, {headers: headers})
+    return  this._http.patch("https://pick-me-up-mea2n.herokuapp.com/carts/", body, {headers: headers})
     .map( response => {
       return response.json();
     })
@@ -42,7 +42,7 @@ export class CartService {
   }
 
   getCarts(){
-      return this._http.get('http://localhost:3000/carts')
+      return this._http.get('https://pick-me-up-mea2n.herokuapp.com/carts')
       .map(response => {
           const data = response.json().obj;
           let obj: any[] = [];
@@ -58,7 +58,7 @@ export class CartService {
 
   getItems(cart){
     var cartId = cart._id;
-    return this._http.get('http://localhost:3000/carts/menu-items?cart_id=' + cartId)
+    return this._http.get('https://pick-me-up-mea2n.herokuapp.com/carts/menu-items?cart_id=' + cartId)
     .map(response => {
       const data = response.json().obj;
       let obj: any[] = [];
@@ -75,7 +75,7 @@ export class CartService {
   resetVotes(){
     console.log('vote reset service');
     const body = JSON.stringify(this.carts[0]);
-    return this._http.patch('http://localhost:3000/carts/reset', body).map(
+    return this._http.patch('https://pick-me-up-mea2n.herokuapp.com/carts/reset', body).map(
       response => {
         console.log(response);
       }
