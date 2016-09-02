@@ -29,8 +29,8 @@ export class MenuDetailComponent {
   constructor(private orderService: OrderService) {}
 
   onSubmit(item) {
-    const order = new Order(localStorage.getItem('userId'), item.cartId);
-    console.log(item.cartIds);
+    const order = new Order(localStorage.getItem('userId'), item._id);
+    console.log(item);
     console.log( localStorage.getItem('userId'));
     console.log(order);
     this.orderService.createOrder(order)

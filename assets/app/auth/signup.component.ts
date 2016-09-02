@@ -21,7 +21,7 @@ import { User } from "./user";
           <label for="password">Password</label>
           <input formControlName="password" type="password" id="password">
         </div>
-        <button type="submit" [disabled]="!myForm.valid">Sign Up</button>
+        <button type="submit">Sign Up</button>
       </form>
     </section>
   `
@@ -44,7 +44,6 @@ export class SignupComponent implements OnInit {
         },
         error => console.log(error)
       );
-    this.router.navigate([''])
   }
 
   ngOnInit() {

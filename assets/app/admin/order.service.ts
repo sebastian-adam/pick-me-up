@@ -36,7 +36,8 @@ export class OrderService {
     const headers = new Headers({'Content-Type':'application/json'});
     return this._http.post('http://localhost:3000/orders', body, {headers: headers}).map(
       response => {
-        console.log(response);
+        const data = response.json().obj;
+        console.log(data);
       }
     ).catch(error => Observable.throw(error));
   }

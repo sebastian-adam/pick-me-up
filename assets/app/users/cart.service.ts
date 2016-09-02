@@ -57,15 +57,14 @@ export class CartService {
   }
 
   getItems(cart){
-    console.log(cart);
     var cartId = cart._id;
     return this._http.get('http://localhost:3000/carts/menu-items?cart_id=' + cartId)
     .map(response => {
       const data = response.json().obj;
-      console.log(data);
       let obj: any[] = [];
       for(let i = 0; i < data.length; i++){
-        let item = new Item(data[i].name, data[i].price, cartId);
+        let item = new Item(data[i].name, data[i].price, cartId, data[i]._id);
+        console.log(item);
         obj.push(item);
       }
       return obj;
