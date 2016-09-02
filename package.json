@@ -7,8 +7,6 @@
   },
   "scripts": {
     "start": "node ./bin/www",
-    "postinstall": "typings install",
-    "typings": "typings",
     "vendor": "gulp vendor",
     "gulp": "gulp clean && gulp",
     "build:production": "gulp clean && gulp build && node systemjs.builder.js"
