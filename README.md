@@ -16,17 +16,10 @@ Install required packages via npm:
 $ npm install
 ```
 
-Run the gulp build task in the terminal in the repository folder:
+The site is live and viewable at:
 ```
-$ npm run gulp
+https://pick-me-up-mea2n.herokuapp.com
 ```
-
-Run the npm start task in the terminal to start the local web server:
-```
-$ npm start
-```
-
-Open your browser and go to `localhost:3000`.
 
 License
 -------
