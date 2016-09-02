@@ -17,7 +17,7 @@ import { CartService } from "./cart.service";
         <button class="btn btn-success" type="submit">VOTE</button>
       </form>
       <div *ngIf="this.expanded">
-        <menu-item *ngFor="let item of items" [item]="item"></menu-item>
+        <menu-item *ngFor="let item of items" [item]=item></menu-item>
       </div>
     </div>
   </article>

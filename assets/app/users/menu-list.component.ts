@@ -8,7 +8,7 @@ import { CartService } from "./cart.service";
   template: `
     <h1>{{cart.name}} Menu</h1>
     <section>
-       <menu-detail *ngFor="let item of items" [item]="item"></menu-detail>
+       <menu-detail *ngFor="let item of items" [item]=item></menu-detail>
     </section>
   `
 })
