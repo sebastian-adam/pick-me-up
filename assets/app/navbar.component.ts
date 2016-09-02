@@ -3,12 +3,19 @@ import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'navbar',
     template: `
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Pickmeup</a>
+        </div>
+        <ul class="nav navbar-nav">
 
-    <ul>
-      <li routerLinkActive="active"><a [routerLink]="['auth']">Account</a></li>
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['']">Order Portal</a></li>
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['admin']">Admin</a></li>
-    </ul>
+          <li routerLinkActive="active"><a [routerLink]="['auth']">Account</a></li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['']">Order Portal</a></li>
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['admin']">Admin</a></li>
+        </ul>
+      </div>
+    </nav>
     `
 })
 export class NavbarComponent {

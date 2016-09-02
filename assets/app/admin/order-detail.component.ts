@@ -5,8 +5,8 @@ import {OrderService} from "./order.service";
 @Component({
   selector: 'order-detail',
   template: `
-    <div>
-      {{order.user.name}}......{{order.item.name}}
+    <div class="well">
+      <b>{{order.user.name}}</b> wants the <b>{{order.item.name}}</b>
     </div>
   `,
 })

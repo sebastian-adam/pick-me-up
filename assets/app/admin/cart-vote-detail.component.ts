@@ -4,7 +4,7 @@ import { Cart } from '../users/cart';
 @Component({
   selector: 'cart-vote-detail',
   template: `
-    <div>
+    <div class=" well jumbotron">
       {{cart.name}} ..... {{cart.votes}}
     </div>
   `

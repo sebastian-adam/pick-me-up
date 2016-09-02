@@ -6,7 +6,7 @@ import { Order } from "./order";
 @Component({
   selector: 'order-list',
   template: `
-    <h1>this is Order lists!</h1>
+    <h1>Here Are Today's Orders!</h1>
     <section>
        <order-detail *ngFor="let order of orders" [order]=order></order-detail>
        <br>

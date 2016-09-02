@@ -9,11 +9,12 @@ import { CartService } from "./cart.service";
   selector: 'cart-detail',
   template: `
     <article>
-      <div>
-        {{ cart.name }} {{cart.votes}}
-        <button (click)="showItems(cart)">Show More</button>
+      <div class="jumbotron">
+        <h2>{{ cart.name }}</h2>
+        <h3>{{cart.votes}} votes!</h3>
+        <button class="btn btn-info" (click)="showItems(cart)">Show More</button>
         <form *ngIf="!this.voted" (ngSubmit)="onSubmit(cart)">
-          <button type="submit">VOTE</button>
+          <button class="btn btn-success" type="submit">VOTE</button>
         </form>
         <div *ngIf="this.expanded">
           <menu-item *ngFor="let item of items" [item]="item"></menu-item>
